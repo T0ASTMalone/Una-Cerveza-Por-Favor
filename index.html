@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <title>Una Cerveza, Por Favor!</title>
+</head>
+<body>
+    <main>
+        <section id="login">
+            <button class="login">Sign In</button>
+            <button class="guest">Continue as guest</button>
+        </section>
+
+        <section id="main-page" class="hidden">
+            <button class="button option-beer">Beer</button>
+            <button class="button option-brewery">Brewery</button>
+            <button class="button option-favorites">Favorites</button>
+        </section>
+
+        <section id="search-beer" class="hidden">
+            <form action="">
+                <input type="text" class="form-content beer-input">
+                <input type="text" class="form-content style-input">
+                <button class="form-content list-beers">Get all the beers</button>
+            </form>
+            <button class="random-beer">Random</button>
+        </section>
+
+        <section id="search-brewery" class="hidden">
+            <form action="#" class="">
+                <input type="text" class="form-content city-input">
+                <input type="text" class=" form-content state-input">
+                <button class="form-content list-breweries">Get all the breweries</button>
+                <button class="form-content random-brewery">Random</button>
+            </form>
+        </section>
+
+        <section id="beer-list" class="hidden">
+            <ul class="list">
+                <li class="beer">
+                    <p class="beer-name">Some beer</p>
+                </li>
+                <li class="beer">
+                    <p class="beer-name">Some beer</p>
+                </li>
+                <li class="beer">
+                     <p class="beer-name">Some beer</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="brewery-list" class="hidden">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JMhe7QpzMam2GClTOSRwngAUmXLGFDLoaAMqN0BbIshODYov" alt="brewery-map">
+            <ul class="list">
+                    <li class="brewery">
+                        <p class="brewery-name">Some Brewery</p>
+                    </li>
+                    <li class="brewery">
+                        <p class="brewery-name">Some Brewery</p>
+                    </li>
+                    <li class="brewery">
+                         <p class="brewery-name">Some Brewery</p>
+                    </li>
+                </ul>
+        </section>
+
+        <section id="beer" class="hidden">
+            <img src="" alt="beer-icon">
+            <p class="name">Some Beer</p>
+            <p class="info">
+                Beer Facts! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos nobis 
+                blanditiis assumenda laboriosam sequi! Ullam ut, enim hic quas commodi eos distinctio recusandae 
+                facere quam impedit, ipsum reprehenderit pariatur.
+            </p>
+            <button class="+favorites-beer">Add to Favorites</button>
+            <a href="#">social media link</a>
+        </section>
+
+        <section id="brewery" class="hidden">
+            <img src="" alt="brewery-icon">
+            <p class="name">Some Beer</p>
+            <p class="info">
+                Beer Facts! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos nobis 
+                blanditiis assumenda laboriosam sequi! Ullam ut, enim hic quas commodi eos distinctio recusandae 
+                facere quam impedit, ipsum reprehenderit pariatur.
+            </p>
+            <button class="+favorites-brewery">Add to Favorites</button>
+            <a href="#">social media link</a>
+        </section>
+    </main>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

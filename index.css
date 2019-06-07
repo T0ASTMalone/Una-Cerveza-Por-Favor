@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+section {
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    align-items: center;
+}
+
+section:nth-child(odd) {
+    background-color: rgb(179, 179, 179);
+}
+
+section, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+form {
+    width: 80%;
+}
+
+.form-content {
+    margin: 10px;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+
+}
+
