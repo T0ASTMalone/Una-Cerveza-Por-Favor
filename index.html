@@ -21,49 +21,29 @@
         </section>
 
         <section id="search-beer" class="hidden">
-            <form action="">
-                <input type="text" class="form-content beer-input">
-                <input type="text" class="form-content style-input">
+            <form action="" id="beer-criteria">
+                <input type="text" class="form-content beer-input" required />
                 <button class="form-content list-beers">Get all the beers</button>
             </form>
             <button class="random-beer">Random</button>
         </section>
 
         <section id="search-brewery" class="hidden">
-            <form action="#" class="">
-                <input type="text" class="form-content city-input">
-                <input type="text" class=" form-content state-input">
-                <button class="form-content list-breweries">Get all the breweries</button>
-                <button class="form-content random-brewery">Random</button>
+            <form action="#" id="brewery-criteria">
+                <input type="text" class="form-content city-input" placeholder="Denver" required />
+                <input type="text" class=" form-content state-input" placeholder="CO" required />
+                <button class="form-content list-breweries submit">Get all the breweries</button>
+                <button class="form-content random-brewery submit">Random</button>
             </form>
         </section>
 
-        <section id="beer-list" class="hidden">
-            <ul class="list">
-                <li class="beer">
-                    <p class="beer-name">Some beer</p>
-                </li>
-                <li class="beer">
-                    <p class="beer-name">Some beer</p>
-                </li>
-                <li class="beer">
-                     <p class="beer-name">Some beer</p>
-                </li>
+        <section id="beer-list-container" class="hidden">
+            <ul class="beer-list">
             </ul>
         </section>
 
-        <section id="brewery-list" class="hidden">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JMhe7QpzMam2GClTOSRwngAUmXLGFDLoaAMqN0BbIshODYov" alt="brewery-map">
-            <ul class="list">
-                    <li class="brewery">
-                        <p class="brewery-name">Some Brewery</p>
-                    </li>
-                    <li class="brewery">
-                        <p class="brewery-name">Some Brewery</p>
-                    </li>
-                    <li class="brewery">
-                         <p class="brewery-name">Some Brewery</p>
-                    </li>
+        <section id="brewery-list-container" class="hidden">
+            <ul class="brewery-list">
                 </ul>
         </section>
 

@@ -7,7 +7,7 @@
 }
 
 section {
-    height: 500px;
+    min-height: 500px;
     width: 500px;
     margin: auto;
     align-items: center;
@@ -38,3 +38,6 @@ form {
 
 }
 
+li {
+    list-style: none;
+}
