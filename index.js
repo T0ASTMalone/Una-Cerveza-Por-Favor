@@ -18,6 +18,14 @@ function displayBeerList(list) {
         `);
     }
     $('#beer-list-container').removeClass('hidden');
+
+    $('.beer-list').on('click', 'p', function() {
+        let selection = $(this)[0].innerText;
+        for (var n in list) {
+            if (list[n].name === selection)
+                displayBeer(list[n]);
+        }
+    });
 }
 
 function getRandomBeer() {
@@ -45,9 +53,7 @@ function beerSearch() {
 }
 
 function displayBrewery(brewery) {
-    $('.brewery-list').on('click', 'p', function() {
-        console.log($(this)[0].innerText);
-    });
+    console.log(brewery);
 }
 
 function displayBreweryList(list) {
@@ -59,7 +65,13 @@ function displayBreweryList(list) {
         `);
     }
     $('#brewery-list-container').removeClass('hidden');
-    displayBrewery();
+    $('.brewery-list').on('click', 'p', function() {
+        let selection = $(this)[0].innerText;
+        for (var n in list) {
+            if (list[n].name === selection)
+                displayBrewery(list[n]);
+        }
+    });
 }
 
 function getRandomBrewery() {
@@ -74,14 +86,23 @@ function getRandomBrewery() {
         });
 }
 
+
 function getBreweryList() {
     let city = $('.city-input').val();
     let state = $('.state-input').val();
     let list;
     fetch(`http://beermapping.com/webservice/loccity/${beerMap}/${city},${state}&s=json`)
-        .then(response => response.json())
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
         .then(responseJson => {
             displayBreweryList(responseJson);
+        })
+        .catch(err => {
+            alert('sdsfasfd');
         });
 }
 
