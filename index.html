@@ -9,18 +9,15 @@
 </head>
 <body>
     <main>
-        <section id="login">
-            <button class="login">Sign In</button>
-            <button class="guest">Continue as guest</button>
-        </section>
-
-        <section id="main-page" class="hidden">
+        <section id="main-page" class="">
             <button class="button option-beer">Beer</button>
             <button class="button option-brewery">Brewery</button>
-            <button class="button option-favorites">Favorites</button>
         </section>
 
         <section id="search-beer" class="hidden">
+            <nav class="go-main">
+                    <button>Go Back</button>
+            </nav>
             <form action="" id="beer-criteria">
                 <input type="text" class="form-content beer-input" required />
                 <button class="form-content list-beers">Get all the beers</button>
@@ -29,47 +26,47 @@
         </section>
 
         <section id="search-brewery" class="hidden">
+            <nav class="go-main">
+                    <button>Go Back</button>
+            </nav>
             <form action="#" id="brewery-criteria">
-                <input type="text" class="form-content city-input" placeholder="Denver" required />
-                <input type="text" class=" form-content state-input" placeholder="CO" required />
-                <button class="form-content list-breweries submit">Get all the breweries</button>
-                <button class="form-content random-brewery submit">Random</button>
-                <p id="js-err-message"></p>
+                <input type="text" class="form-content city-input" placeholder="Denver" required>
+                <input type="text" class=" form-content state-input" placeholder="CO" required >
+                <button type='submit' id="list-breweries" value="list-breweries" class="form-content submit">Get all the breweries</button>
+                <button type='submit' id="random-brewery" class="form-content submit">Random</button>
             </form>
         </section>
 
         <section id="beer-list-container" class="hidden">
+            <nav class="go-search-beer">
+                <button>Go Back</button>
+            </nav>
             <ul class="beer-list">
             </ul>
         </section>
 
         <section id="brewery-list-container" class="hidden">
+            <nav class="go-search-brewery">
+                <button>Go Back</button>
+            </nav>
             <ul class="brewery-list">
-                </ul>
+            </ul>
         </section>
 
         <section id="beer" class="hidden">
-            <img src="" alt="beer-icon">
-            <p class="name">Some Beer</p>
-            <p class="info">
-                Beer Facts! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos nobis 
-                blanditiis assumenda laboriosam sequi! Ullam ut, enim hic quas commodi eos distinctio recusandae 
-                facere quam impedit, ipsum reprehenderit pariatur.
-            </p>
-            <button class="+favorites-beer">Add to Favorites</button>
-            <a href="#">social media link</a>
+            <nav class="go-beer-list">
+                <button>Go Back</button>
+            </nav>
+            <div class="beer-content">
+            </div>
         </section>
 
         <section id="brewery" class="hidden">
-            <img src="" alt="brewery-icon">
-            <p class="name">Some Beer</p>
-            <p class="info">
-                Beer Facts! Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quos nobis 
-                blanditiis assumenda laboriosam sequi! Ullam ut, enim hic quas commodi eos distinctio recusandae 
-                facere quam impedit, ipsum reprehenderit pariatur.
-            </p>
-            <button class="+favorites-brewery">Add to Favorites</button>
-            <a href="#">social media link</a>
+            <nav class="go-brewery-list">
+                <button>Go Back</button>
+            </nav>
+            <div class="brewery-content">
+            </div>
         </section>
     </main>
     <script

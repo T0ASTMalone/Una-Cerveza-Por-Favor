@@ -2,25 +2,39 @@
     box-sizing: border-box;
 }
 
+body {
+    font-size: 16px;
+}
+
+nav {
+    position: fixed;
+    top: 15px;
+    width: 100%;
+    margin-left: 20px;
+}
+
+main {
+    margin-top: 12%;
+}
+
 .hidden {
     display: none;
 }
 
 section {
     min-height: 500px;
-    width: 500px;
     margin: auto;
     align-items: center;
-}
-
-section:nth-child(odd) {
-    background-color: rgb(179, 179, 179);
 }
 
 section, form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.go-back {
+    align-self: flex-start;
 }
 
 form {
@@ -38,6 +52,31 @@ form {
 
 }
 
+.map {
+    width: 300px;
+    height: 300px;
+    border-radius: 6px;
+    margin-bottom: 10%;
+}
+
+.brewery-list, .beer-list {
+    padding: 0;
+    margin: 0;
+}
+
 li {
     list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.brewery, .beer {
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.beer-icon {
+    width: 20%;
 }
