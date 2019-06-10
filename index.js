@@ -5,7 +5,7 @@ let beerMap = '2322f94129d492b2c563ca8cd7af96c0';
 
 let punkRoot = 'https://api.punkapi.com/v2/beers';
 
-let gMapKey = 'AIzaSyAuplbwDtbNqWr7AriUUgzJ1sjP-2mnOTc';
+let gMapKey = '';
 
 function displayBeer(beer) {
     console.log(beer);
