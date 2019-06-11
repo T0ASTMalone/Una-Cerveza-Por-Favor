@@ -4,17 +4,22 @@
 
 body {
     font-size: 16px;
+    font-family: 'Poppins', sans-serif;
 }
 
 nav {
     position: fixed;
-    top: 15px;
+    top: 10px;
     width: 100%;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 main {
-    margin-top: 12%;
+    margin-top: 15%;
+}
+
+#main-page {
+    text-align: center;
 }
 
 .hidden {
@@ -22,7 +27,6 @@ main {
 }
 
 section {
-    min-height: 500px;
     margin: auto;
     align-items: center;
 }
@@ -31,6 +35,39 @@ section, form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+form {
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: grey;
+    width: 300px;
+    min-height: 300px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+}
+
+.nav-button,
+.button {
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-button {
+    height: 30px;
 }
 
 .go-back {
@@ -45,38 +82,87 @@ form {
     margin: 10px;
 }
 
-.button {
-    width: 100px;
-    height: 50px;
-    text-align: center;
-
-}
-
-.map {
-    width: 300px;
-    height: 300px;
-    border-radius: 6px;
-    margin-bottom: 10%;
-}
-
 .brewery-list, .beer-list {
     padding: 0;
     margin: 0;
 }
 
 li {
+    margin: 0;
     list-style: none;
+    border-bottom: 1px solid black;
+    padding: 10px;
 }
 
 a {
     text-decoration: none;
+    color: black;
+    font-size: 20px;
 }
+
+a:hover {
+    cursor: pointer;
+    color: white;
+}
+
 
 .brewery, .beer {
     cursor: pointer;
-    margin: 10px 0;
 }
 
 .beer-icon {
     width: 20%;
+    align-self: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+#map {
+    text-align: center;
+}
+
+.map {
+    width: 275px;
+    height: 275px;
+    border-radius: 6px;
+    margin-bottom: 10%;
+}
+
+.name,
+.tagline {
+    text-align: center;
+}
+
+@media only screen and (min-width: 720px) {
+    main {
+        margin-top: 10%;
+    }
+
+    .content {
+        width: 500px;
+        min-height: 500px;
+    }
+
+    .map {
+        width: 400px;
+        height: 400px;
+    }
+
+    nav {
+        top: 20px;
+        left: 100px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    main {
+        margin-top: 10%;
+    }
+
+    nav {
+        left: 200px;
+    }
 }

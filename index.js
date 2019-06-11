@@ -5,7 +5,7 @@ let beerMap = '2322f94129d492b2c563ca8cd7af96c0';
 
 let punkRoot = 'https://api.punkapi.com/v2/beers';
 
-let gMapKey = '';
+let gMapKey = 'AIzaSyAuplbwDtbNqWr7AriUUgzJ1sjP-2mnOTc';
 
 function displayBeer(beer) {
     console.log(beer);
@@ -13,13 +13,13 @@ function displayBeer(beer) {
     <img class="beer-icon" src="${beer.image_url}" alt="beer-icon">
     <h1 class="name">${beer.name}</h1>
     <h2 class="tagline">${beer.tagline}</h2>
-    <p class="info">${beer.description}</p>
+    <p class="description">${beer.description}</p>
     <div>
         <span>ABV: ${beer.abv}%</span>
         <span>IBU: ${beer.ibu}</span>
     </div>
     <div>
-        <h2>Goes great with</h2>
+        <h2 class="food-pairings">Goes great with</h2>
         <p>${beer.food_pairing[0]}</p>
         <p>${beer.food_pairing[1]}</p>
         <p>${beer.food_pairing[2]}</p>
@@ -118,11 +118,14 @@ function beerSearch() {
 
 }
 
-
 function getAddressString(address) {
     let streetString = address.street.split(' ').join('+').replace('#', '');
     let cityString = address.city.split(' ').join('+');
     return streetString.concat(',', cityString).concat(',+', address.state);
+}
+
+function getGmapsString(address) {
+    return encodeURIComponent(`${address.street} ${address.city}, ${address.state} ${address.zip}`)
 }
 
 function displayBrewery(brewery) {
@@ -130,19 +133,22 @@ function displayBrewery(brewery) {
     let address = {
         street: brewery.street,
         city: brewery.city,
-        state: brewery.state
+        state: brewery.state,
+        zip: brewery.zip
     }
     let addressString = getAddressString(address);
+    let directions = getGmapsString(address);
+    console.log(directions);
     $('.brewery-content').empty().append(`
     <div id="map">
     <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=${addressString}
     &zoom=15&size=600x600&maptype=roadmap&markers=size:mid%7Ccolor:red%7C${addressString}&key=${gMapKey}"
     alt="local-map">
     </div>
-    <a href="#">${address.street}, ${address.city}, ${address.state} ${brewery.zip}</a>
+    <a href='http://maps.google.com/maps?q="${directions}"' target"_blank">${address.street}, ${address.city}, ${address.state} ${brewery.zip}</a>
     <h1 class="name">${brewery.name}</h1>
-    <h2 class="info">${brewery.status}</h2>
-    <a href="#">${brewery.phone}</a>
+    <h2 class="description">${brewery.status}</h2>
+    <a href="tel:${brewery.phone}">${brewery.phone}</a>
     `);
     $('#brewery').removeClass('hidden');
 
@@ -156,14 +162,14 @@ function displayBrewery(brewery) {
 }
 
 function displayBreweryList(list) {
-    console.log('ran');
-
     for(let i = 0; i < list.length; i++) {
-        $('.brewery-list').append(`
-        <li class="brewery">
-            <a href='#' class="see-brewery">${list[i].name}</a>
-        </li>
-        `);
+        if(list[i].status === 'Brewpub' | list[i].status === 'Brewery') {
+            $('.brewery-list').append(`
+            <li class="brewery">
+                <a href='#' class="see-brewery">${list[i].name}</a>
+            </li>
+            `);
+        }
     }
     $('#brewery-list-container').removeClass('hidden');
     $('.brewery-list').on('click', 'a', function() {
@@ -248,7 +254,7 @@ function selectSearch() {
         $('#search-brewery').removeClass('hidden');
     });
 
-    $('.go-main').on('click', function() {
+    $('.go-main').on('click', 'button', function() {
         $('#search-beer, #search-brewery').addClass('hidden');
         $('#main-page').removeClass('hidden');
     });
