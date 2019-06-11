@@ -1,5 +1,4 @@
 'use strict';
-let locCity = 'https://beermapping.com/webservice/loccity';
 
 let beerMap = '2322f94129d492b2c563ca8cd7af96c0';
 
@@ -193,7 +192,7 @@ function getRandomBrewery() {
     let city = $('.city-input').val();
     let state = $('.state-input').val();
     $('.form-content').val('');
-    fetch(`http://beermapping.com/webservice/loccity/${beerMap}/${city},${state}&s=json`)
+    fetch(`https://beermapping.com/webservice/loccity/${beerMap}/${city},${state}&s=json`)
         .then(response => response.json())
         .then(responseJson => {
             if (responseJson[0].id === null)
@@ -215,7 +214,7 @@ function getBreweryList() {
     let city = $('.city-input').val().trim();
     let state = $('.state-input').val().trim();
     $('.form-content').val('');
-    fetch(`http://beermapping.com/webservice/loccity/${beerMap}/${city},${state}&s=json`)
+    fetch(`https://beermapping.com/webservice/loccity/${beerMap}/${city},${state}&s=json`)
         .then(response => response.json())
         .then(responseJson => {
             if (responseJson[0].id === null)
