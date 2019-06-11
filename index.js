@@ -1,5 +1,5 @@
 'use strict';
-let locCity = 'http://beermapping.com/webservice/loccity';
+let locCity = 'https://beermapping.com/webservice/loccity';
 
 let beerMap = '2322f94129d492b2c563ca8cd7af96c0';
 
