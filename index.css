@@ -115,6 +115,10 @@ a:hover {
     align-self: center;
 }
 
+.brew-info {
+    text-align: center;
+}
+
 .info {
     display: flex;
     flex-direction: column;

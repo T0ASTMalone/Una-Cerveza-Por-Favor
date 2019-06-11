@@ -144,10 +144,10 @@ function displayBrewery(brewery) {
     &zoom=15&size=600x600&maptype=roadmap&markers=size:mid%7Ccolor:red%7C${addressString}&key=${gMapKey}"
     alt="local-map">
     </div>
-    <a href='http://maps.google.com/maps?q="${directions}"' target"_blank">${address.street}, ${address.city}, ${address.state} ${brewery.zip}</a>
-    <h1 class="name">${brewery.name}</h1>
-    <h2 class="description">${brewery.status}</h2>
-    <a href="tel:${brewery.phone}">${brewery.phone}</a>
+    <a class="brew-info" href='http://maps.google.com/maps?q="${directions}"' target"_blank">${address.street}, ${address.city}, ${address.state} ${brewery.zip}</a>
+    <h1 class="brew-info name">${brewery.name}</h1>
+    <h2 class="brew-info description">${brewery.status}</h2>
+    <a class="brew-info" href="tel:${brewery.phone}">${brewery.phone}</a>
     `);
     $('#brewery').removeClass('hidden');
 
