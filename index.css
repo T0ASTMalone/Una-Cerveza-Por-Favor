@@ -170,3 +170,76 @@ a:hover {
         left: 200px;
     }
 }
+/*slider*/
+#text-slide,
+#text-slide .slide {
+    width: 400px;
+    height: 100px;
+    text-align: center;
+}
+
+.lang {
+    font-size: 14px;
+}
+
+#text-slide {
+    overflow: hidden;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+#text-slide .container {
+    position: relative;
+    width: 9000px;
+    animation: slide-animation 100s infinite;
+}
+
+#text-slide .slide {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    padding: 10px 20px;
+  }
+
+/*animation*/
+
+@keyframes slide-animation {
+    0% { 
+        opacity: 0;
+        right: 0;
+      }
+      20% {
+        opacity: 1;
+        right: 0; 
+      }
+      22% { right: 100%}
+      24.62% { right: 200%}
+      27.24% { right: 300%}
+      29.86% { right: 400%}
+      32.48% { right: 500%}
+      35.1% { right: 600%}
+      37.72% { right: 700%}
+      40.34% { right: 800%}
+      42.96% { right: 900%}
+      45.58% { right: 1000%}
+      48.2% { right: 1100%}
+      50.82% { right: 1200%}
+      53.44% { right: 1300%}
+      56.06% { right: 1400%}
+      58.68% { right: 1500%}
+      61.3% { right: 1600%}
+      63.92% { right: 1700%}
+      66.54% { right: 1800%}
+      69.16% { right: 1900%}
+      71.78% { right: 2000%}
+      74.4% { right: 2100%}
+      77.02% { right: 2200%}
+      88% {
+        opacity: 1;
+        right: 2300%; 
+      }
+      100% {
+        opacity: 0;
+        right: 2300%;
+      }
+}
