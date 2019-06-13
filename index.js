@@ -260,8 +260,8 @@ function selectSearch() {
 }
 
 function login() {
-    $('#login').on('click', 'button', function() {
-        $('#login').addClass('hidden');
+    $('#initiate').on('click', 'button', function() {
+        $('.landingpage').addClass('hidden');
         $('#main-page').removeClass('hidden');
     })
 }
