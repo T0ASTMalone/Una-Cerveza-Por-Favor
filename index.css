@@ -22,10 +22,17 @@ main {
     text-align: center;
 }
 
+#about-text {
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
 
+label {
+    font-size: 18px;
+}
 section {
     margin: auto;
     align-items: center;
@@ -35,6 +42,10 @@ section, form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.landingpage {
+    min-height: 500px;
 }
 
 form {
@@ -191,7 +202,11 @@ a:hover {
 #text-slide .container {
     position: relative;
     width: 9000px;
+<<<<<<< HEAD
     animation: slide-animation 125s infinite;
+=======
+    animation: slide-animation 75s infinite;
+>>>>>>> 8c51654c5095d0340b52fe38252ddad25d835071
 }
 
 #text-slide .slide {
@@ -208,10 +223,11 @@ a:hover {
         opacity: 0;
         right: 0;
       }
-      5% {
+      10% {
         opacity: 1;
         right: 0; 
       }
+<<<<<<< HEAD
       9.3% { right: 100%}
       13.6% { right: 200%}
       17.9% { right: 300%}
@@ -234,6 +250,29 @@ a:hover {
       90.7% { right: 2000%}
       95% { right: 2100%}
       99.2% {
+=======
+      14% { right: 100%}
+      18% { right: 200%}
+      22% { right: 300%}
+      26% { right: 400%}
+      30% { right: 500%}
+      34% { right: 600%}
+      38% { right: 700%}
+      42% { right: 800%}
+      46% { right: 900%}
+      50% { right: 1000%}
+      54% { right: 1100%}
+      58% { right: 1200%}
+      62% { right: 1300%}
+      66% { right: 1400%}
+      70% { right: 1500%}
+      74% { right: 1600%}
+      78% { right: 1700%}
+      82% { right: 1800%}
+      86% { right: 1900%}
+      90% { right: 2000%}
+      95% {
+>>>>>>> 8c51654c5095d0340b52fe38252ddad25d835071
         opacity: 1;
         right: 2200%; 
       }

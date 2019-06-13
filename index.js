@@ -260,9 +260,18 @@ function selectSearch() {
 }
 
 function login() {
+<<<<<<< HEAD
     $('#initiate').on('click', 'button', function() {
+=======
+    $('#initiate').on('click', function() {
+>>>>>>> 8c51654c5095d0340b52fe38252ddad25d835071
         $('.landingpage').addClass('hidden');
         $('#main-page').removeClass('hidden');
+    })
+
+    $('#about').on('click', function() {
+        $(this).addClass('hidden');
+        $('#about-text').slideDown();
     })
 }
 
