@@ -260,9 +260,14 @@ function selectSearch() {
 }
 
 function login() {
-    $('#login').on('click', 'button', function() {
-        $('#login').addClass('hidden');
+    $('#initiate').on('click', function() {
+        $('.landingpage').addClass('hidden');
         $('#main-page').removeClass('hidden');
+    })
+
+    $('#about').on('click', function() {
+        $(this).addClass('hidden');
+        $('#about-text').slideDown();
     })
 }
 

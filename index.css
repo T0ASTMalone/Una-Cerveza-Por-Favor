@@ -22,10 +22,17 @@ main {
     text-align: center;
 }
 
+#about-text {
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
 
+label {
+    font-size: 18px;
+}
 section {
     margin: auto;
     align-items: center;
@@ -35,6 +42,10 @@ section, form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.landingpage {
+    min-height: 500px;
 }
 
 form {
@@ -191,7 +202,7 @@ a:hover {
 #text-slide .container {
     position: relative;
     width: 9000px;
-    animation: slide-animation 100s infinite;
+    animation: slide-animation 75s infinite;
 }
 
 #text-slide .slide {
@@ -208,32 +219,31 @@ a:hover {
         opacity: 0;
         right: 0;
       }
-      5% {
+      10% {
         opacity: 1;
         right: 0; 
       }
-      9.285% { right: 100%}
-      13.57% { right: 200%}
-      17.855% { right: 300%}
-      21.14% { right: 400%}
-      26.425% { right: 500%}
-      30.71% { right: 600%}
-      34.995% { right: 700%}
-      39.28% { right: 800%}
-      43.565% { right: 900%}
-      47.85% { right: 1000%}
-      52.135% { right: 1100%}
-      56.42% { right: 1200%}
-      60.705% { right: 1300%}
-      64.99% { right: 1400%}
-      69.275% { right: 1500%}
-      73.56% { right: 1600%}
-      77.845% { right: 1700%}
-      82.13% { right: 1800%}
-      86.415% { right: 1900%}
-      90.7% { right: 2000%}
-      94.985% { right: 2100%}
-      99.265% {
+      14% { right: 100%}
+      18% { right: 200%}
+      22% { right: 300%}
+      26% { right: 400%}
+      30% { right: 500%}
+      34% { right: 600%}
+      38% { right: 700%}
+      42% { right: 800%}
+      46% { right: 900%}
+      50% { right: 1000%}
+      54% { right: 1100%}
+      58% { right: 1200%}
+      62% { right: 1300%}
+      66% { right: 1400%}
+      70% { right: 1500%}
+      74% { right: 1600%}
+      78% { right: 1700%}
+      82% { right: 1800%}
+      86% { right: 1900%}
+      90% { right: 2000%}
+      95% {
         opacity: 1;
         right: 2200%; 
       }
