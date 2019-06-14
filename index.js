@@ -35,11 +35,22 @@ function displayBeer(beer) {
     });
 }
 
-function displayBeerList(list) {
-    for(let i = 0; i < list.length; i++) {
+function filterList(list, input) {
+    let regex = new RegExp(input, "i");
+    let newList = [];
+    for (let k in list) {
+        if (regex.test(list[k].name))
+            newList.push(list[k]);
+    }
+    return newList;
+}
+
+function displayBeerList(list, name) {
+    let beers = filterList(list, name);
+    for(let i = 0; i < beers.length; i++) {
         $('.beer-list').append(`
         <li class="beer">
-            <a href="#" class="see-beer">${list[i].name}</a>
+            <a href="#" class="see-beer">${beers[i].name}</a>
         </li>
         `);
     }
@@ -94,7 +105,7 @@ function getBeerList(name) {
                 throw new Error("sorry, that beer was not found");
             else {
                 $('#search-beer').addClass('hidden');
-                displayBeerList(responseJson);
+                displayBeerList(responseJson, name);
             }
         })
         .catch(err => {
@@ -259,24 +270,40 @@ function selectSearch() {
     });
 }
 
-function login() {
-<<<<<<< HEAD
-    $('#initiate').on('click', 'button', function() {
-=======
+function landing() {
     $('#initiate').on('click', function() {
->>>>>>> 8c51654c5095d0340b52fe38252ddad25d835071
         $('.landingpage').addClass('hidden');
         $('#main-page').removeClass('hidden');
     })
 
     $('#about').on('click', function() {
+        event.preventDefault();
         $(this).addClass('hidden');
         $('#about-text').slideDown();
     })
 }
 
+
+$(document).on("scroll", function() {
+    $('p.animation_element').slideUp();
+    let pageTop = $(document).scrollTop();
+    let pageBottom = pageTop + $(window).height();
+    let section = $('.on-scroll');
+    
+    for (let i = 0; i < section.length; i++) {
+        let tag = section[i];
+    
+        if ($(tag).position().top < pageBottom) {
+             $(tag).addClass('visible')
+        } else {
+            $(tag).removeClass('visible')
+        }
+    }
+})
+
+
 function unaCervezaPorFavor() {
-    login();
+    landing();
     selectSearch();
     beerSearch();
     brewerySearch();

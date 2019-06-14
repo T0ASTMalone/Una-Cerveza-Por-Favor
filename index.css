@@ -3,6 +3,7 @@
 }
 
 body {
+    height: 100%;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
@@ -15,7 +16,7 @@ nav {
 }
 
 main {
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 #main-page {
@@ -46,6 +47,19 @@ section, form {
 
 .landingpage {
     min-height: 500px;
+    text-align: center;
+}
+
+.on-scroll {
+    height: 500px;
+    opacity: 0;
+    transform: translate(0, 100px);
+    transition: all 1s;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translate(0, 0);
 }
 
 form {
@@ -57,7 +71,6 @@ form {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: grey;
     width: 300px;
     min-height: 300px;
     border-radius: 10px;
@@ -151,6 +164,8 @@ a:hover {
     text-align: center;
 }
 
+
+
 @media only screen and (min-width: 720px) {
     main {
         margin-top: 10%;
@@ -187,6 +202,8 @@ a:hover {
     width: 300px;
     height: 100px;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .lang {
@@ -201,19 +218,14 @@ a:hover {
 
 #text-slide .container {
     position: relative;
-    width: 9000px;
-<<<<<<< HEAD
-    animation: slide-animation 125s infinite;
-=======
-    animation: slide-animation 75s infinite;
->>>>>>> 8c51654c5095d0340b52fe38252ddad25d835071
+    width: 10000px;
+    animation: slide-animation 100s infinite;
 }
 
 #text-slide .slide {
     position: relative;
     float: left;
     box-sizing: border-box;
-    padding: 10px 20px;
   }
 
 /*animation*/
@@ -223,61 +235,32 @@ a:hover {
         opacity: 0;
         right: 0;
       }
-      10% {
+      5% {
         opacity: 1;
         right: 0; 
       }
-<<<<<<< HEAD
-      9.3% { right: 100%}
-      13.6% { right: 200%}
-      17.9% { right: 300%}
-      21.1% { right: 400%}
-      26.4% { right: 500%}
-      30.7% { right: 600%}
-      35% { right: 700%}
-      39.3% { right: 800%}
-      43.6% { right: 900%}
-      47.9% { right: 1000%}
-      52.1% { right: 1100%}
-      56.4% { right: 1200%}
-      60.7% { right: 1300%}
-      65% { right: 1400%}
-      69.3% { right: 1500%}
-      73.6% { right: 1600%}
-      77.8% { right: 1700%}
-      82.1% { right: 1800%}
-      86.4% { right: 1900%}
-      90.7% { right: 2000%}
-      95% { right: 2100%}
-      99.2% {
-=======
-      14% { right: 100%}
-      18% { right: 200%}
-      22% { right: 300%}
-      26% { right: 400%}
+      10% { right: 100%}
+      15% { right: 200%}
+      20% { right: 300%}
+      25% { right: 400%}
       30% { right: 500%}
-      34% { right: 600%}
-      38% { right: 700%}
-      42% { right: 800%}
-      46% { right: 900%}
-      50% { right: 1000%}
-      54% { right: 1100%}
-      58% { right: 1200%}
-      62% { right: 1300%}
-      66% { right: 1400%}
-      70% { right: 1500%}
-      74% { right: 1600%}
-      78% { right: 1700%}
-      82% { right: 1800%}
-      86% { right: 1900%}
-      90% { right: 2000%}
-      95% {
->>>>>>> 8c51654c5095d0340b52fe38252ddad25d835071
-        opacity: 1;
-        right: 2200%; 
-      }
+      35% { right: 600%}
+      40% { right: 700%}
+      45% { right: 800%}
+      50% { right: 900%}
+      55% { right: 1000%}
+      60% { right: 1100%}
+      65% { right: 1200%}
+      70% { right: 1300%}
+      75% { right: 1400%}
+      80% { right: 1500%}
+      85% { right: 1600%}
+      90% { right: 1700%}
+      95% { 
+          opacity: 1;
+          right: 1800%}
       100% {
         opacity: 0;
-        right: 2200%;
+        right: 1900%; 
       }
 }
