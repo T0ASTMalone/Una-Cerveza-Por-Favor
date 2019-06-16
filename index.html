@@ -11,11 +11,11 @@
 </head>
 <body>
     <main>
-        <section class="landingpage">
+        <section id="landingpage" class="page">
             <h1>UNA CERVEZA, POR FAVOR!</h1>
             <section class="on-scroll">
                     <div id="text-slide">
-                        <div class="container">
+                        <div id="diffLang" class="">
                             <div class="slide">
                                 <p class="beer-please-1">A BEER, PLEASE!</br><span class="lang">English</span></p>
                             </div>
@@ -77,17 +77,16 @@
                 <p class="animation_element">Scroll</p>
             </section>
             <section class="on-scroll">
+                <button class="button" id="initiate">Lets Go</button>    
+            </section>
+            <section class="on-scroll">
                 <section class="about animation_element">
                     <a href="#" id="about">About</a>
                     <p id="about-text" class="hidden">Want to find a brewery near you? </br> Or just want to find a new beer to try?</p>
-                    <button class="button" id="initiate">Lets Go</button>
-                </section>               
-            </section>
-            <section class="on-scroll">
-            
+                </section> 
             </section>
         </section>
-        <section id="main-page" class="hidden">
+        <section id="main-page" class="page hidden">
             <div class="content">
                 <label for="">Search for Beers or Breweries</label>
                 <button class="button option-beer">Beer</button>
@@ -95,7 +94,7 @@
             </div>
         </section>
 
-        <section id="search-beer" class="hidden">
+        <section id="search-beer" class="page hidden">
             <nav class="go-main">
                     <button class="nav-button">Go Back</button>
             </nav>
@@ -111,7 +110,7 @@
             </div>
         </section>
 
-        <section id="search-brewery" class="hidden">
+        <section id="search-brewery" class="page hidden">
             <nav class="go-main">
                     <button class="nav-button">Go Back</button>
             </nav>
@@ -120,22 +119,22 @@
                     <input type="text" class="form-content city-input" placeholder="Denver" required>
                     <input type="text" class=" form-content state-input" placeholder="CO" required >
                     <button type='submit' id="list-breweries" value="list-breweries" class="button form-content submit">Get all the breweries</button>
-                    <button type='submit' id="random-brewery" class="button form-content submit">Random</button>
                 </form>
             </div>
         </section>
 
-        <section id="beer-list-container" class="hidden">
+        <section id="beer-list-container" class="page hidden">
             <nav class="go-search-beer">
                 <button class="nav-button">Go Back</button>
             </nav>
             <div class="content">
                 <ul class="beer-list">
                  </ul>
+                 <button class="hidden">Load More</button>
             </div>
         </section>
 
-        <section id="brewery-list-container" class="hidden">
+        <section id="brewery-list-container" class="page hidden">
             <nav class="go-search-brewery">
                 <button class="nav-button">Go Back</button>
             </nav>
@@ -145,7 +144,7 @@
             </div>
         </section>
 
-        <section id="beer" class="hidden">
+        <section id="beer" class="page hidden">
             <nav class="go-beer-list">
                 <button class="nav-button">Go Back</button>
             </nav>
@@ -155,7 +154,7 @@
             </div>
         </section>
 
-        <section id="brewery" class="hidden">
+        <section id="brewery" class="page hidden">
             <nav class="go-brewery-list">
                 <button class="nav-button">Go Back</button>
             </nav>

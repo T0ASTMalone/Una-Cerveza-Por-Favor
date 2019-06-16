@@ -2,10 +2,27 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 150%;
+    background-color: rgb(255, 78, 78);
+}
+
+/*html {
+    background-image: url(images/alcoholic-beverages-ale-assorted-1267700.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+
 body {
-    height: 100%;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body,
+a {
+    color: black;
 }
 
 nav {
@@ -34,6 +51,11 @@ main {
 label {
     font-size: 18px;
 }
+
+.page {
+    padding-top: 10%;
+}
+
 section {
     margin: auto;
     align-items: center;
@@ -45,13 +67,13 @@ section, form {
     justify-content: space-around;
 }
 
-.landingpage {
+#landingpage {
     min-height: 500px;
     text-align: center;
 }
 
 .on-scroll {
-    height: 500px;
+    height: 300px;
     opacity: 0;
     transform: translate(0, 100px);
     transition: all 1s;
@@ -84,14 +106,23 @@ form {
     text-align: center;
 }
 
+.nav-button {
+    height: 30px;
+}
+
+
 .nav-button,
 .button {
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
+    border: none;
+    background-color: rgba(255, 0, 0, 0);
+    color: white;
 }
 
-.nav-button {
-    height: 30px;
+.nav-button:hover,
+.button:hover {
+    border: 2px solid white;
 }
 
 .go-back {
@@ -118,9 +149,12 @@ li {
     padding: 10px;
 }
 
+.social {
+    border: none;
+}
+
 a {
     text-decoration: none;
-    color: black;
     font-size: 20px;
 }
 
@@ -167,7 +201,7 @@ a:hover {
 
 
 @media only screen and (min-width: 720px) {
-    main {
+    main, .page {
         margin-top: 10%;
     }
 
@@ -188,8 +222,8 @@ a:hover {
 }
 
 @media only screen and (min-width: 1000px) {
-    main {
-        margin-top: 10%;
+    main, .page {
+        margin-top: 0;
     }
 
     nav {
@@ -219,7 +253,7 @@ a:hover {
 #text-slide .container {
     position: relative;
     width: 10000px;
-    animation: slide-animation 100s infinite;
+    animation: slide-animation 75s infinite;
 }
 
 #text-slide .slide {
@@ -235,28 +269,28 @@ a:hover {
         opacity: 0;
         right: 0;
       }
-      5% {
+      2.5% {
         opacity: 1;
         right: 0; 
       }
-      10% { right: 100%}
-      15% { right: 200%}
-      20% { right: 300%}
-      25% { right: 400%}
-      30% { right: 500%}
-      35% { right: 600%}
-      40% { right: 700%}
-      45% { right: 800%}
-      50% { right: 900%}
-      55% { right: 1000%}
-      60% { right: 1100%}
-      65% { right: 1200%}
-      70% { right: 1300%}
-      75% { right: 1400%}
-      80% { right: 1500%}
-      85% { right: 1600%}
-      90% { right: 1700%}
-      95% { 
+      7.8% { right: 100%}
+      13.1% { right: 200%}
+      18.4% { right: 300%}
+      23.7% { right: 400%}
+      29% { right: 500%}
+      34.3% { right: 600%}
+      39.6% { right: 700%}
+      44.9% { right: 800%}
+      50.2% { right: 900%}
+      55.5% { right: 1000%}
+      60.8% { right: 1100%}
+      66.1% { right: 1200%}
+      71.4% { right: 1300%}
+      76.7% { right: 1400%}
+      82% { right: 1500%}
+      87.3% { right: 1600%}
+      92.6% { right: 1700%}
+      97.5% { 
           opacity: 1;
           right: 1800%}
       100% {
