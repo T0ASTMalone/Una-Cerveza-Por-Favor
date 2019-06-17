@@ -4,11 +4,39 @@
 
 html{
     height: 150%;
-    background-color: rgb(255, 78, 78);
+    background-color: gold;
 }
 
 /*html {
-    background-image: url(images/alcoholic-beverages-ale-assorted-1267700.jpg);
+    background-image: url(images/alcohol-alcoholic-beverages-beer-1400255.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}*/
+
+/*#slide {
+    background-image: url(images/barrel-beer-brewery-1267358.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    box-shadow: 0px 10px 10px rgb(53, 53, 53);
+}
+
+#main-page {
+    background-image: url(images/barrel-beer-brewery-1267358.jpg);
+    text-align: center;
+}
+
+#search-beer {
+    background-image: url(images/alcohol-alcoholic-beverages-beer-1400255.jpg);
+}
+
+#search-brewery {
+    background-image: url(images/alcohol-alcoholic-beverages-beer-1400255.jpg);
+}
+
+section.list {
+    background-position: center center;
+    background-image: url(images/barrel-beer-brewery-1267358.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }*/
@@ -27,17 +55,23 @@ a {
 
 nav {
     position: fixed;
-    top: 10px;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-left: 10px;
+    height: 11.25%;
 }
 
 main {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
-#main-page {
-    text-align: center;
+#title {
+    margin-top: 0;
+    margin-bottom: 10%;
+}
+
+#about {
+    font-size: 14px;
 }
 
 #about-text {
@@ -50,10 +84,21 @@ main {
 
 label {
     font-size: 18px;
+    color: black;
 }
 
 .page {
-    padding-top: 10%;
+    margin-top: 20%;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+}
+
+input {
+    border-radius: 4px;
+    border: none;
+    height: 30px;
+    padding-left: 10px;
 }
 
 section {
@@ -106,10 +151,17 @@ form {
     text-align: center;
 }
 
-.nav-button {
-    height: 30px;
+.button-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
 }
 
+.nav-button {
+    height: 30px;
+    margin-left: 10px;
+    font-size: 16px;
+}
 
 .nav-button,
 .button {
@@ -117,7 +169,7 @@ form {
     font-family: 'Poppins', sans-serif;
     border: none;
     background-color: rgba(255, 0, 0, 0);
-    color: white;
+    color: black;
 }
 
 .nav-button:hover,
@@ -149,13 +201,27 @@ li {
     padding: 10px;
 }
 
+.social-list {
+    display: inline;
+    padding: 0;
+    text-align: center;
+}
+
 .social {
     border: none;
+    display: inline;
+}
+
+.social-link {
+    font-size: 14px;
+}
+
+.address {
+    font-size: 20px;
 }
 
 a {
     text-decoration: none;
-    font-size: 20px;
 }
 
 a:hover {
@@ -166,6 +232,12 @@ a:hover {
 
 .brewery, .beer {
     cursor: pointer;
+}
+
+.icon {
+    width: 125px;
+    align-self: center;
+    margin: 10px;
 }
 
 .beer-icon {
@@ -198,46 +270,80 @@ a:hover {
     text-align: center;
 }
 
-
-
-@media only screen and (min-width: 720px) {
-    main, .page {
-        margin-top: 10%;
-    }
-
-    .content {
-        width: 500px;
-        min-height: 500px;
-    }
-
-    .map {
-        width: 400px;
-        height: 400px;
-    }
-
+@media only screen and (min-height: 800px) {
     nav {
-        top: 20px;
-        left: 100px;
+        height: 9.25%;
+    }
+    
+}
+
+@media only screen and (min-width: 720px) and (min-height: 1000px) {
+    section.page {
+        margin-top: 12.5%;
+    }
+    
+}
+
+@media only screen and (min-width: 600px) {
+    .info {
+        width: 400px;
     }
 }
 
-@media only screen and (min-width: 1000px) {
-    main, .page {
+
+@media only screen and (min-width: 720px) {
+    main {
         margin-top: 0;
     }
 
-    nav {
-        left: 200px;
+    .page {
+        margin-top: 10%
     }
+
+    .info {
+        width: 500px;
+    }
+    
+    .map {
+        width: 500px;
+        height: 500px;
+    }
+
+    .nav-button {
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    main{
+        margin-top: 0;
+    }
+
+    section.page {
+        margin-top: 4.125%
+    }
+
+    #title {
+        margin-bottom: 5%
+    }
+    #slide {
+        height: 500px;
+    }
+
+    .nav-button {
+        margin-left: 200px;
+    }
+
 }
 /*slider*/
 #text-slide,
 #text-slide .slide {
-    width: 300px;
+    width: 320px;
     height: 100px;
     text-align: center;
     margin: 0;
     padding: 0;
+    color: black;
 }
 
 .lang {

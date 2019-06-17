@@ -54,13 +54,18 @@ function filterList(list, input) {
 
 function displayBeerList(list, name) {
     let beers = filterList(list, name);
-    for(let i = 0; i < beers.length; i++) {
-        $('.beer-list').append(`
-        <li class="beer">
-            <a href="#" class="see-beer">${beers[i].name}</a>
-        </li>
-        `);
+    if (beers.length < 1) {
+        $('.beer-list').append(`<p>Sorry, We did not find that beer</p>`)
+    } else {
+        for(let i = 0; i < beers.length; i++) {
+            $('.beer-list').append(`
+            <li class="beer">
+                <a href="#" class="see-beer">${beers[i].name}</a>
+            </li>
+            `);
+        }
     }
+    
     $('#beer-list-container').removeClass('hidden');
 
     $('.beer-list').on('click', 'a', function() {
@@ -154,12 +159,14 @@ function displayVenue(venue) {
     alt="local-map">
     </div>
     <a class="brew-info" href='http://maps.google.com/maps?q="${directions}"' rel="noopener noreferrer" target="_blank">${address.street}, ${address.city}, ${address.state}</a>
+    <img class="icon" src="${venue.venue_icon.md}" alt="venue-logo">
     <h1 class="brew-info name">${venue.venue_name}</h1>
     <h2 class="brew-info type">${venue.categories.items[0].category_name}</h2>
-    <ul>
-        <li class="social">${venue.contact.facebook}</li>
-        <li class="social">${venue.contact.twitter}</li>
-        <li class="social">${venue.contact.venue_url}</li>
+    <ul class="social-list">
+        <li class="social"><a class="social-link" href="${venue.contact.facebook}">Facebook</a></li>
+        <li class="social"><a class="social-link" href="https://www.instagram.com/${venue.contact.instagram}/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li class="social"><a class="social-link" href="https://twitter.com/${venue.contact.twitter}/" rel="noopener noreferrer" target="_blank">Twitter</a></li>
+        <li class="social"><a class="social-link" href="${venue.contact.venue_url}" rel="noopener noreferrer" target="_blank">Website</a></li>
     </ul>
     `);
     $('#brewery').removeClass('hidden');
@@ -185,6 +192,7 @@ function getVenue(name) {
     fetch(`https://api.untappd.com/v4/search/venue?q=${name.title}&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => {
+            console.log(responseJson);
             let vicinity = responseJson.response.venues.items
             for (let i = 0; i < vicinity.length; i++){
                 let venueCity = vicinity[i].venue.venue_city;
@@ -216,10 +224,17 @@ function displayBrewery(brewery) {
     &zoom=15&size=600x600&maptype=roadmap&markers=size:mid%7Ccolor:red%7C${latLng}&key=${gMapKey}"
     alt="local-map">
     </div>
-    <a class="brew-info" href='http://maps.google.com/maps?q="${directions}"' rel="noopener noreferrer" target="_blank">${address.street}, ${address.city}, ${address.state}</a>
+    <a class="brew-info address" href='http://maps.google.com/maps?q="${directions}"' rel="noopener noreferrer" target="_blank">${address.street}, ${address.city}, ${address.state}</a>
+    <img class="icon" src="${brewery.brewery_label}" alt="brewery-logo">
     <h1 class="brew-info name">${brewery.brewery_name}</h1>
     <h2 class="brew-info type">${brewery.brewery_type}</h2>
     <p class"brew-info description">${brewery.brewery_description}</p>
+    <ul class="social-list">
+        <li class="social"><a class="social-link" href="${brewery.contact.facebook}">Facebook</a></li>
+        <li class="social"><a class="social-link" href="https://www.instagram.com/${brewery.contact.instagram}/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li class="social"><a class="social-link" href="https://twitter.com/${brewery.contact.twitter}/" rel="noopener noreferrer" target="_blank">Twitter</a></li>
+        <li class="social"><a class="social-link" href="${brewery.contact.url}" rel="noopener noreferrer" target="_blank">Website</a></li>
+    </ul>
     `);
     $('#brewery').removeClass('hidden');
 
@@ -245,6 +260,7 @@ function getBreweryID(name) {
     fetch(`https://api.untappd.com/v4/search/brewery?q=${name.title}&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => {
+            console.log(responseJson);
             let specBrew;
             for(let i = 0; i < responseJson.response.brewery.items.length; i++){
                 let item = responseJson.response.brewery.items[i].brewery.location;
