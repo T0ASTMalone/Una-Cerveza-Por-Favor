@@ -192,16 +192,30 @@ function getVenue(name) {
     fetch(`https://api.untappd.com/v4/search/venue?q=${name.title}&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => {
-            console.log(responseJson);
             let vicinity = responseJson.response.venues.items
+            let venue;
             for (let i = 0; i < vicinity.length; i++){
                 let venueCity = vicinity[i].venue.venue_city;
                 let regex = new RegExp ("(?<=>)" + venueCity + "(?=,)")
                 if(regex.test(name.vicinity)) {
+                    venue = vicinity[i].venue.venue_id;
                     getVenueInfo(vicinity[i].venue.venue_id)
                 }
             }
+            if (venue === undefined)
+                throw new Error ('Sorry, we did not find any information on that venue')
         })
+        .catch(Error => {
+            $('.brewery-content').append(`<p>${Error}</p>`)
+            $('#brewery').removeClass('hidden');
+            $('.go-brewery-list').on('click', 'button', function() {
+                $('#brewery').addClass('hidden');
+                if ($('.brewery-list').is(':empty'))
+                    $('#search-brewery').removeClass('hidden');
+                else
+                    $('#brewery-list-container').removeClass('hidden');
+            });
+        });
 }
 
 function getGmapsString(address) {
