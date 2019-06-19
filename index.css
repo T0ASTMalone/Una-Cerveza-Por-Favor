@@ -4,7 +4,7 @@
 
 html{
     height: 150%;
-    background-color: gold;
+    background-color: rgb(255, 224, 47);
 }
 
 /*html {
@@ -66,8 +66,9 @@ main {
 }
 
 #title {
+    padding-left: 50px;
     margin-top: 0;
-    margin-bottom: 10%;
+    margin-bottom: 50px;;
 }
 
 #about {
@@ -118,7 +119,7 @@ section, form {
 }
 
 .on-scroll {
-    height: 300px;
+    height: 250px;
     opacity: 0;
     transform: translate(0, 100px);
     transition: all 1s;
@@ -154,7 +155,14 @@ form {
 .button-container {
     display: flex;
     height: 100%;
+    justify-content: space-between;
     align-items: center;
+}
+
+#nav-title {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 24px;
 }
 
 .nav-button {
@@ -168,7 +176,7 @@ form {
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
     border: none;
-    background-color: rgba(255, 0, 0, 0);
+    background-color: rgb(255, 255, 255);
     color: black;
 }
 
@@ -240,6 +248,11 @@ a:hover {
     margin: 10px;
 }
 
+.default-image {
+    width: 50px;
+    margin: 0
+}
+
 .beer-icon {
     width: 20%;
     align-self: center;
@@ -281,6 +294,17 @@ a:hover {
     section.page {
         margin-top: 12.5%;
     }
+
+    .on-scroll {
+        height: 300px;
+    }
+    
+}
+
+@media only screen and (min-height: 1300px){
+    .on-scroll {
+        height: 400px;
+    }
     
 }
 
@@ -312,6 +336,10 @@ a:hover {
     .nav-button {
         margin-left: 40px;
     }
+
+    #nav-title {
+        padding: 0 40px;
+    }
 }
 
 @media only screen and (min-width: 1300px) {
@@ -324,14 +352,18 @@ a:hover {
     }
 
     #title {
-        margin-bottom: 5%
+        margin-bottom: 50px;
     }
     #slide {
-        height: 500px;
+        height: 300px;
     }
 
     .nav-button {
         margin-left: 200px;
+    }
+
+    #nav-title {
+        padding: 0 200px;
     }
 
 }
