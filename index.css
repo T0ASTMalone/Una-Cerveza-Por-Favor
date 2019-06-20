@@ -3,8 +3,13 @@
 }
 
 html{
+    height: 150%;
     background: url('https://sga-inc.net/wp-content/uploads/2017/05/Chalkboard-Background.jpg') no-repeat center center fixed;
     background-size: cover;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 body {
@@ -40,6 +45,10 @@ main {
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 50px;;
+}
+
+.title:hover {
+    cursor: pointer;
 }
 
 .primary {

@@ -409,6 +409,8 @@ function brewerySearch() {
         $('.brewery-list').empty();
         getRandomBrewery();
     })*/
+
+    $('html').css('height', '100%');
 }
 
 function selectSearch() {
@@ -461,7 +463,11 @@ function landing() {
         event.preventDefault();
         $(this).addClass('hidden');
         $('#about-text').slideDown();
-    })
+    });
+
+    $('#nav-title, #title').on('click', function(){
+        location.reload();
+    });
 
     $(document).on("scroll", function() {
         $('p.animation_element').slideUp();
@@ -479,7 +485,7 @@ function landing() {
                 $(tag).removeClass('visible')
             }
         }
-    })
+    });
 }
 
 
