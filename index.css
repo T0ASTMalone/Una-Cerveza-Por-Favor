@@ -223,13 +223,18 @@ li {
 
 a {
     text-decoration: none;
+    width: fit-content;
+    align-self: center;
+    margin-bottom: 20px;
 }
 
-a:hover {
+.social-link:hover {
     cursor: pointer;
+    border-bottom: 2px solid white;
 }
 
-.brewery:hover {
+.brewery:hover,
+.beer:hover {
     border-bottom: 2px solid white;
 }
 
