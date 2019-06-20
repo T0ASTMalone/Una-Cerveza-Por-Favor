@@ -14,9 +14,12 @@ let appCode = 'vfmTdNWy_DoEnOseSPVF6Q';
 
 
 function displayBeer(beer) {
+    //display beer from
     console.log(beer);
+    let defaultImage = beer.image_url === null ? $('.default-beer').attr('src') : beer.image_url;
+    console.log(defaultImage);
     $('.beer-content').empty().append(`
-    <img class="beer-icon" src="${beer.image_url}" alt="beer-icon">
+    <img class="beer-icon" src="${defaultImage}" alt="beer-icon">
     <h1 class="name">${beer.name}</h1>
     <h2 class="tagline">${beer.tagline}</h2>
     <p class="description">${beer.description}</p>
@@ -46,6 +49,7 @@ function displayBeer(beer) {
 }
 
 function filterList(list, input) {
+    //filter beer list based on user input (punk api search is very permisive)
     let regex = new RegExp(input, "i");
     let newList = [];
     for (let k in list) {
@@ -56,6 +60,7 @@ function filterList(list, input) {
 }
 
 function displayBeerList(list, name) {
+    //display beer list
     let beers = filterList(list, name);
     if (beers.length < 1) {
         $('.beer-list').append(`<p>Sorry, We did not find that beer</p>`)
@@ -91,6 +96,7 @@ function displayBeerList(list, name) {
 }
 
 function getRandomBeer() {
+    //fetch random beer form punk api
     fetch(`${punkRoot}/random`)
         .then(response => {
             if (response.ok) {
@@ -109,6 +115,7 @@ function getRandomBeer() {
 }
 
 function getBeerList(name) {
+    //fetch beers based on user input from punk api
     fetch(`${punkRoot}?beer_name=${name}`)
         .then(response => {
             if (response.ok) {
@@ -133,7 +140,7 @@ function getBeerList(name) {
 }
 
 function beerSearch() {
-   
+   //listen for user input of random beer click
     $('.random-beer').on('click', function() {
         $('.form-content').val('');
         $('.beer-list').empty();
@@ -149,7 +156,7 @@ function beerSearch() {
 }
 
 function displayVenue(venue) {
-    console.log(venue);
+    //display venue
     let latLng = venue.location.lat + ',' + venue.location.lng;
     let address = {
         street: venue.location.venue_address,
@@ -158,7 +165,7 @@ function displayVenue(venue) {
     }
     //let addressString = getAddressString(address);
     let directions = getGmapsString(address);
-    $('.brewery-content').empty().append(`
+    $('.brewery-content').append(`
     <div id="map">
     <img class="map" src="https://maps.googleapis.com/maps/api/staticmap?center=${latLng}
     &zoom=15&size=600x600&maptype=roadmap&markers=size:mid%7Ccolor:red%7C${latLng}&key=${gMapKey}"
@@ -169,7 +176,7 @@ function displayVenue(venue) {
     <h1 class="brew-info name">${venue.venue_name}</h1>
     <h2 class="brew-info type">${venue.categories.items[0].category_name}</h2>
     <ul class="social-list">
-        <li class="social"><a class="social-link" href="${venue.contact.facebook}">Facebook</a></li>
+        <li class="social"><a class="social-link" href="${venue.contact.facebook}" rel="noopener noreferrer" target="_blank">Facebook</a></li>
         <li class="social"><a class="social-link" href="https://www.instagram.com/${venue.contact.instagram}/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
         <li class="social"><a class="social-link" href="https://twitter.com/${venue.contact.twitter}/" rel="noopener noreferrer" target="_blank">Twitter</a></li>
         <li class="social"><a class="social-link" href="${venue.contact.venue_url}" rel="noopener noreferrer" target="_blank">Website</a></li>
@@ -179,6 +186,7 @@ function displayVenue(venue) {
 
     $('.go-brewery-list').on('click', 'button', function() {
         $('#brewery').addClass('hidden');
+        $('.brewery-content').empty();
         if ($('.brewery-list').is(':empty')) {
             $('.go-main').show();
             $('#search-brewery').removeClass('hidden');
@@ -190,13 +198,14 @@ function displayVenue(venue) {
 
 
 function getVenueInfo(id) {
+    //get venue info 
     fetch(`https://api.untappd.com/v4/venue/info/${id}?&compact=true&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => displayVenue(responseJson.response.venue))
 }
 
 function getVenue(name) {
-    console.log('ran')
+    //search for venue by name from Untappd api in order to get venue id
     fetch(`https://api.untappd.com/v4/search/venue?q=${name.title}&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => {
@@ -217,6 +226,7 @@ function getVenue(name) {
             $('.brewery-content').append(`<p>${Error}</p>`)
             $('#brewery').removeClass('hidden');
             $('.go-brewery-list').on('click', 'button', function() {
+                $('.brewery-content').empty();
                 $('#brewery').addClass('hidden');
                 if ($('.brewery-list').is(':empty'))
                     $('#search-brewery').removeClass('hidden');
@@ -227,18 +237,19 @@ function getVenue(name) {
 }
 
 function getGmapsString(address) {
+    //format address to fetch map from static map api
     return encodeURIComponent(`${address.street} ${address.city}, ${address.state}`)
 }
 
 function displayBrewery(brewery) {
-    console.log(brewery);
+    //display brewery to DOM
     let latLng = brewery.location.brewery_lat + ',' + brewery.location.brewery_lng;
     let address = {
         street: brewery.location.brewery_address,
         city: brewery.location.brewery_city,
         state: brewery.location.brewery_state,
     }
-    //let addressString = getAddressString(address);
+
     let directions = getGmapsString(address);
     $('.brewery-content').empty().append(`
     <div id="map">
@@ -252,16 +263,16 @@ function displayBrewery(brewery) {
     <h2 class="brew-info type">${brewery.brewery_type}</h2>
     <p class"brew-info description">${brewery.brewery_description}</p>
     <ul class="social-list">
-        <li class="social"><a class="social-link" href="${brewery.contact.facebook}">Facebook</a></li>
+        <li class="social"><a class="social-link" href="${brewery.contact.facebook}" rel="noopener noreferrer" target="_blank">Facebook</a></li>
         <li class="social"><a class="social-link" href="https://www.instagram.com/${brewery.contact.instagram}/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
         <li class="social"><a class="social-link" href="https://twitter.com/${brewery.contact.twitter}/" rel="noopener noreferrer" target="_blank">Twitter</a></li>
         <li class="social"><a class="social-link" href="${brewery.contact.url}" rel="noopener noreferrer" target="_blank">Website</a></li>
     </ul>
     `);
-    $('#brewery').removeClass('hidden');
 
     $('.go-brewery-list').on('click', 'button', function() {
         $('#brewery').addClass('hidden');
+        $('.brewery-content').empty();
         if ($('.brewery-list').is(':empty')) {
             $('.go-main').show();
             $('#search-brewery').removeClass('hidden');
@@ -272,6 +283,7 @@ function displayBrewery(brewery) {
 }
 
 function getBreweryInfo(brewery) {
+    //get brewery info using brewery ID from Untappd
     fetch(`https://api.untappd.com/v4/brewery/info/${brewery.brewery.brewery_id}?compact=true&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => {
@@ -280,22 +292,21 @@ function getBreweryInfo(brewery) {
 }
 
 function getBreweryID(name) {
-    console.log(name);
+    //gets brewery ID from Untappd
     fetch(`https://api.untappd.com/v4/search/brewery?q=${name.title}&client_id=${untappd}&client_secret=${secret}`)
         .then(response => response.json())
         .then(responseJson => {
-            console.log(responseJson);
             let specBrew;
             for(let i = 0; i < responseJson.response.brewery.items.length; i++){
                 let item = responseJson.response.brewery.items[i].brewery.location;
                 let loc = name.position;
                 if (Math.round(item.lat) === Math.round(loc[0]) && Math.round(item.lng) === Math.round(loc[1])) {
                     specBrew = responseJson.response.brewery.items[i];
-                    console.log(specBrew);
                     getBreweryInfo(specBrew);
                 }
             }
             if (specBrew === undefined)
+                //if no brewery is found search for venues with same name
                 getVenue(name);
         });
 }
@@ -314,6 +325,7 @@ function loadMoreBreweries(list) {
 }
 
 function displayBreweryList(name) {
+    //display all list items
     $('.brewery-list').append(`
     <li class="brewery">
         <a href='#' class="see-brewery">${name}</a>
@@ -323,7 +335,7 @@ function displayBreweryList(name) {
 
 
 function manageList(list) {
-    console.log(list);
+    //manage list length (used before the beer mapping project went down)
     if (list.length <= 25) {
         for(let i = 0; i < list.length; i++) {
             displayBreweryList(list[i].title);
@@ -334,20 +346,16 @@ function manageList(list) {
         }
     } 
     
-    $('js-load-more').on('click', function() {
-        loadMoreBreweries(list);
-    });
-
     $('#brewery-list-container').removeClass('hidden');
     $('.go-main').hide();
     $('.brewery-list').on('click', 'a', function() {
         let selection = $(this)[0].innerText;
-        console.log($(this)[0].innerText)
         $('#brewery-list-container').addClass('hidden');
         for (var n in list) {
             if (list[n].title === selection)
                 getBreweryID(list[n]);
         }
+        $('#brewery').removeClass('hidden');
     });
 
     $('.go-search-brewery').on('click', 'button', function() {
@@ -358,7 +366,20 @@ function manageList(list) {
     })
 }
 
+function getBreweryList(latLng) {
+    //fetch list of breweries in users area (lat and long) using Here api
+    $('.form-content').val('');
+    fetch(`https://places.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&q=brewery&at=${latLng}`)
+        .then(response => response.json())
+        .then(responseJson => manageList(responseJson.results.items))
+        .catch(Error => {
+            alert(Error);
+        });
+}
+
+
 function getLatLng(city) {
+    //get lat and long based on user input in brewery search
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${gMapKey}`)
         .then(response => response.json())
         .then(responseJson => {
@@ -374,17 +395,8 @@ function getLatLng(city) {
         });
 }
 
-function getBreweryList(latLng) {
-    $('.form-content').val('');
-    fetch(`https://places.api.here.com/places/v1/discover/search?app_id=${appId}&app_code=${appCode}&q=brewery&at=${latLng}`)
-        .then(response => response.json())
-        .then(responseJson => manageList(responseJson.results.items))
-        .catch(Error => {
-            alert(Error);
-        });
-}
-
 function brewerySearch() {
+    //listen for user to submit brewery criteria form
     $('#brewery-criteria').on('submit', function() {
         event.preventDefault();
         $('#search-brewery').addClass('hidden');
@@ -392,33 +404,46 @@ function brewerySearch() {
         getLatLng(city);
     })
 
-    $('#random-brewery').on('click', function() {
+    /*$('#random-brewery').on('click', function() {
         event.preventDefault();
         $('.brewery-list').empty();
         getRandomBrewery();
-    })
+    })*/
 
     $('html').css('height', '100%')
 }
 
 function selectSearch() {
+    //listen for user to choose beer or brewery search
     $('.option-beer').on('click', function() {
+        let width = screen.width
         $('#main-page').addClass('hidden');
+        if (width < 450){
+            $('.button-container').css('justify-content', 'space-between');
+        }
         $('#nav-title').slideUp();
         $('#nav-title, .nav-button').hide().removeClass('hidden').slideDown();
         $('#search-beer').removeClass('hidden');
     });
 
     $('.option-brewery').on('click', function() {
+        let width = screen.width
         $('#main-page').addClass('hidden');
+        if (width < 450){
+            $('.button-container').css('justify-content', 'space-between');
+        }
         $('#nav-title').slideUp();
         $('#nav-title, .nav-button').hide().removeClass('hidden').slideDown();
         $('#search-brewery').removeClass('hidden');
     });
 
     $('.go-main').on('click', 'button', function() {
+        let width = screen.width
         $('#search-beer, #search-brewery').addClass('hidden');
         $('#nav-title, .nav-button').slideUp('slow', function(){
+            if (width < 450){
+                $('.button-container').css('justify-content', 'center');
+            }
             $('.nav-button').hide();
             $('#nav-title').slideDown();
         });

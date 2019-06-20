@@ -13,11 +13,11 @@
         <nav class="go-main hidden">
             <div class="button-container">
                 <button class="nav-button hidden">Go Back</button>
-                <h1 id="nav-title">UNA CERVEZA, POR FAVOR!</h1>
+                <h1 id="nav-title">UNA CERVEZA, POR FAVOR! <img class="title-icon"src="icons/beer.png" alt="beer icon"></h1>
             </div>
         </nav>
         <section id="landingpage" class="page">
-            <h1 id="title">UNA CERVEZA, POR FAVOR!</h1>
+            <h1 id="title">UNA CERVEZA, POR FAVOR!<img class="title-icon"src="icons/beer.png" alt="beer icon"></h1>
             <section id="slide" class="on-scroll">
                     <div id="text-slide">
                         <div id="diffLang" class="">
@@ -31,7 +31,7 @@
                                 <p class="beer-please-3">UNE BIERE, S'IL VOUS PLAIT</br><span class="lang">French</span></p>
                             </div>
                             <div class="slide">
-                                <p class="beer-please-4">CERVEjA, POR FAVOR!</br><span class="lang">Portuguese</span></p>
+                                <p class="beer-please-4">CERVEJA, POR FAVOR!</br><span class="lang">Portuguese</span></p>
                             </div>
                             <div class="slide">
                                 <p class="beer-please-5">BIRU ONEGAI SHIMASU</br><span class="lang">Japanese</span></p>
@@ -103,7 +103,7 @@
             <div class="content">
                 <label for="brewery-criteria">Search for beer</label>
                 <form action="" id="beer-criteria">
-                     <input type="text" class="form-content beer-input" placeholder="Amarillo - IPA Is Dead" required />
+                     <input type="text" class="form-content beer-input" placeholder="Amarillo - IPA Is Dead" required autofocus />
                     <button class="form-content list-beers button">Get all the beers</button>
                 </form>
                 <label for="random-brewery">Feeling adventurous?</label>
@@ -114,8 +114,9 @@
         <section id="search-brewery" class="page hidden">
             <div class="content">
                 <form action="#" id="brewery-criteria">
-                    <input type="text" class="form-content city-input" placeholder="Denver" required>
-                    <input type="text" class=" form-content state-input" placeholder="CO" required >
+                    <label  for="brewery-criteria">Search for breweries in your city</label>
+                    <input type="text" class="form-content city-input" placeholder="City" required autofocus>
+                    <input type="text" class=" form-content state-input" placeholder="State" required >
                     <button type='submit' id="list-breweries" value="list-breweries" class="button form-content submit">Get all the breweries</button>
                 </form>
             </div>
@@ -125,7 +126,7 @@
             <nav class="go-search-beer">
                 <div class="button-container">
                     <button class="nav-button">Go Back</button>
-                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!</h1>
+                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!<img class="title-icon"src="icons/beer.png" alt="beer icon"></h1>
                 </div>
             </nav>
             <div class="content">
@@ -139,7 +140,7 @@
             <nav class="go-search-brewery">
                 <div class="button-container">
                     <button class="nav-button">Go Back</button>
-                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!</h1>
+                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!<img class="title-icon"src="icons/beer.png" alt="beer icon"></h1>
                 </div>
             </nav>
             <div class="content">
@@ -152,20 +153,21 @@
             <nav class="go-beer-list">
                 <div class="button-container">
                     <button class="nav-button">Go Back</button>
-                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!</h1>
+                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!<img class="title-icon"src="icons/beer.png" alt="beer icon"></h1>
                 </div>
             </nav>
             <div class="content">
                 <div class="beer-content info">
                 </div>
             </div>
+            <img class="default-beer hidden" src="icons/beer.png" alt="default-beer">
         </section>
 
         <section id="brewery" class="page hidden">
             <nav class="go-brewery-list">
                 <div class="button-container">
                     <button class="nav-button">Go Back</button>
-                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!</h1>
+                    <h1 id="nav-title">UNA CERVEZA, POR FAVOR!<img class="title-icon"src="icons/beer.png" alt="beer icon"></h1>
                 </div>
             </nav>
             <div class="content">
