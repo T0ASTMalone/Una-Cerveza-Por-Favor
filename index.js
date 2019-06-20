@@ -409,8 +409,6 @@ function brewerySearch() {
         $('.brewery-list').empty();
         getRandomBrewery();
     })*/
-
-    $('html').css('height', '100%')
 }
 
 function selectSearch() {
