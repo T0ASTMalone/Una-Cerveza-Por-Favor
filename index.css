@@ -4,42 +4,9 @@
 
 html{
     height: 150%;
-    background-color: rgb(255, 224, 47);
-}
-
-/*html {
-    background-image: url(images/alcohol-alcoholic-beverages-beer-1400255.jpg);
+    background: url('https://sga-inc.net/wp-content/uploads/2017/05/Chalkboard-Background.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
-}*/
-
-/*#slide {
-    background-image: url(images/barrel-beer-brewery-1267358.jpg);
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    box-shadow: 0px 10px 10px rgb(53, 53, 53);
 }
-
-#main-page {
-    background-image: url(images/barrel-beer-brewery-1267358.jpg);
-    text-align: center;
-}
-
-#search-beer {
-    background-image: url(images/alcohol-alcoholic-beverages-beer-1400255.jpg);
-}
-
-#search-brewery {
-    background-image: url(images/alcohol-alcoholic-beverages-beer-1400255.jpg);
-}
-
-section.list {
-    background-position: center center;
-    background-image: url(images/barrel-beer-brewery-1267358.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}*/
 
 body {
     font-size: 16px;
@@ -50,7 +17,11 @@ body {
 
 body,
 a {
-    color: black;
+    color: white;
+}
+
+p {
+    line-height: 30px;
 }
 
 nav {
@@ -59,6 +30,7 @@ nav {
     left: 0;
     width: 100%;
     height: 11.25%;
+    backdrop-filter: blur(5px);
 }
 
 main {
@@ -71,8 +43,13 @@ main {
     margin-bottom: 50px;;
 }
 
+.primary {
+    width: 50px;
+}
+
 .title-icon {
     width: 25px;
+    filter: hue-rotate(90deg);
 }
 
 #about {
@@ -89,7 +66,6 @@ main {
 
 label {
     font-size: 18px;
-    color: black;
     text-align: center;
 }
 
@@ -105,6 +81,7 @@ input {
     border-radius: 5px;
     height: 30px;
     padding-left: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 section {
@@ -166,7 +143,6 @@ form {
     height: 100%;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 224, 47);
 }
 
 #nav-title {
@@ -251,7 +227,10 @@ a {
 
 a:hover {
     cursor: pointer;
-    color: white;
+}
+
+.brewery:hover {
+    border-bottom: 2px solid white;
 }
 
 
@@ -308,7 +287,7 @@ a:hover {
     text-align: center;
     margin: 0;
     padding: 0;
-    color: black;
+    color: white;
 }
 
 .lang {
@@ -383,6 +362,10 @@ a:hover {
     .title-icon {
         width: 15px;
     }
+
+    .primary {
+        width: 30px;
+    }
 }
 
 @media only screen and (min-height: 800px) {
@@ -426,6 +409,10 @@ a:hover {
     .content {
         width: 500px;
     }
+
+    li {
+        font-size: 20px;
+    }
 }
 
 
@@ -453,11 +440,13 @@ a:hover {
 
     #nav-title {
         padding: 0 40px;
+        font-size: 20px;
     }
 
     #text-slide,
     #text-slide .slide {
-    width: 450px;
+        width: 450px;
+        font: 24px;
     }
 }
 
@@ -472,10 +461,40 @@ a:hover {
 
     #title {
         margin-bottom: 50px;
+        font-size: 40px;
     }
 
     #slide {
         height: 300px;
+    }
+
+    input {
+        height: 40px;
+        width: 200px;
+        font-size: 16px;
+        font: ''
+    }
+
+    input::placeholder {
+        font-size: 16px;
+    }
+
+    .primary {
+        width: 50px;
+    }
+
+    .info {
+        width: 700px;
+    }
+
+    p {
+        line-height: 40px;
+    }
+
+    p, 
+    #about,
+    label{
+        font-size: 20px;
     }
 
     .nav-button {
@@ -484,6 +503,7 @@ a:hover {
 
     #nav-title {
         padding: 0 200px;
+        font-size: 24px;
     }
 
 }
