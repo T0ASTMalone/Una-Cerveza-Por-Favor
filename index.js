@@ -15,9 +15,7 @@ let appCode = 'vfmTdNWy_DoEnOseSPVF6Q';
 
 function displayBeer(beer) {
     //display beer from
-    console.log(beer);
     let defaultImage = beer.image_url === null ? $('.default-beer').attr('src') : beer.image_url;
-    console.log(defaultImage);
     $('.beer-content').empty().append(`
     <img class="beer-icon" src="${defaultImage}" alt="beer-icon">
     <h1 class="name">${beer.name}</h1>
@@ -37,7 +35,6 @@ function displayBeer(beer) {
     $('#beer').removeClass('hidden');
     $('.go-main').hide();
     $('.go-beer-list').on('click', function() {
-        console.log($('.beer-list').is(':empty'));
         $('#beer').addClass('hidden');
         if ($('.beer-list').is(':empty')) {
             $('.go-main').show();
@@ -49,7 +46,7 @@ function displayBeer(beer) {
 }
 
 function filterList(list, input) {
-    //filter beer list based on user input (punk api search is very permisive)
+    //filter beer list based on user input (punk api search is very permissive)
     let regex = new RegExp(input, "i");
     let newList = [];
     for (let k in list) {
@@ -110,7 +107,7 @@ function getRandomBeer() {
             displayBeer(responseJson[0])
         })
         .catch(err => {
-            console.log(err);
+            alert(err);
         });
 }
 
@@ -335,7 +332,7 @@ function displayBreweryList(name) {
 
 
 function manageList(list) {
-    //manage list length (used before the beer mapping project went down)
+    //manage list length
     if (list.length <= 25) {
         for(let i = 0; i < list.length; i++) {
             displayBreweryList(list[i].title);
@@ -403,13 +400,6 @@ function brewerySearch() {
         let city = $('.city-input').val().trim() + ',+' + $('.state-input').val().trim();
         getLatLng(city);
     })
-
-    /*$('#random-brewery').on('click', function() {
-        event.preventDefault();
-        $('.brewery-list').empty();
-        getRandomBrewery();
-    })*/
-
     $('html').css('height', '100%');
 }
 
@@ -421,8 +411,8 @@ function selectSearch() {
         if (width < 450){
             $('.button-container').css('justify-content', 'space-between');
         }
-        $('#nav-title').slideUp();
-        $('#nav-title, .nav-button').hide().removeClass('hidden').slideDown();
+        $('.nav-title').slideUp();
+        $('.nav-title, .nav-button').hide().removeClass('hidden').slideDown();
         $('#search-beer').removeClass('hidden');
     });
 
@@ -432,20 +422,20 @@ function selectSearch() {
         if (width < 450){
             $('.button-container').css('justify-content', 'space-between');
         }
-        $('#nav-title').slideUp();
-        $('#nav-title, .nav-button').hide().removeClass('hidden').slideDown();
+        $('.nav-title').slideUp();
+        $('.nav-title, .nav-button').hide().removeClass('hidden').slideDown();
         $('#search-brewery').removeClass('hidden');
     });
 
     $('.go-main').on('click', 'button', function() {
         let width = screen.width
         $('#search-beer, #search-brewery').addClass('hidden');
-        $('#nav-title, .nav-button').slideUp('slow', function(){
+        $('.nav-title, .nav-button').slideUp('slow', function(){
             if (width < 450){
                 $('.button-container').css('justify-content', 'center');
             }
             $('.nav-button').hide();
-            $('#nav-title').slideDown();
+            $('.nav-title').slideDown();
         });
         $('#main-page').removeClass('hidden');
     });
@@ -465,11 +455,11 @@ function landing() {
         $('#about-text').slideDown();
     });
 
-    $('#nav-title, #title').on('click', function(){
+    $('.nav-title, #title').on('click', function(){
         location.reload();
     });
 
-    $(document).on("scroll", function() {
+    $(document).on("scroll", function () {
         $('p.animation_element').slideUp();
         $('#diffLang').addClass('container');
         let pageTop = $(document).scrollTop();
