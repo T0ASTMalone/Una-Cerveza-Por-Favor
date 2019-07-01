@@ -191,6 +191,10 @@ function displayVenue(venue) {
         else
             $('#brewery-list-container').removeClass('hidden');
     });
+
+    $('.brewery-content').on('click', '.map', function() {
+        window.open(`http://maps.google.com/maps?q="${directions}`, 'noopener', 'noreferrer')
+    });
 }
 
 
@@ -276,6 +280,10 @@ function displayBrewery(brewery) {
         } 
         else
             $('#brewery-list-container').removeClass('hidden');
+    });
+    
+    $('.brewery-content').on('click', '.map', function() {
+        window.open(`http://maps.google.com/maps?q="${directions}`, 'noopener', 'noreferrer')
     });
 }
 
