@@ -397,7 +397,10 @@ function getLatLng(city) {
   )
     .then((response) => response.json())
     .then((responseJson) => {
-      if (responseJson.status === "ZERO_RESULTS") {
+      if (
+        responseJson.status === "ZERO_RESULTS" ||
+        responseJson.status === "REQUEST_DENIED"
+      ) {
         throw new Error("Sorry, we did not find that city, please try again");
       } else {
         console.log(responseJson);
